@@ -2,8 +2,12 @@
 #include "main.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "stdio_retarget2usb/stdio_retarget2usb.h"
+#include <cstring>
+#include <cstdio>
+#include "FreeRtosSys/thread_priority_def.h"
 
-void ThreadEntry(void *argument)
+void BlinkLedEntry(void *argument)
 {
     (void)argument;
 
@@ -17,10 +21,13 @@ void StartDefaultTask(void const *argument)
 {
     (void)argument;
 
-    xTaskCreate(ThreadEntry, "ThreadName", 512, nullptr, 3, nullptr);
+    StdioRetarget2Usb_Init();
+
+    xTaskCreate(BlinkLedEntry, "BlinkLed", 512, nullptr, PriorityNormal, nullptr);
 
     while (1) {
         HAL_GPIO_TogglePin(Led2_GPIO_Port, Led2_Pin);
+        printf("Hello %lu\n", xTaskGetTickCount());
         vTaskDelay(500);
     }
 }
