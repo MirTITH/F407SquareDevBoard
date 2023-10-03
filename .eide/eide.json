@@ -1,0 +1,74 @@
+{
+  "name": "F407SquareDevBoard",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    ".eide/deps",
+    "UserCode",
+    "CubeMX",
+    "System"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": []
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "1d2a94619ba6e6a5def088f4d22221b4"
+  },
+  "targets": {
+    "Debug": {
+      "excludeList": [],
+      "toolchain": "GCC",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "floatingPointHardware": "single",
+        "scatterFilePath": "System/STM32F407VETX_FLASH_Customed.ld",
+        "useCustomScatterFile": true,
+        "storageLayout": {
+          "RAM": [],
+          "ROM": []
+        },
+        "options": "null"
+      },
+      "uploader": "JLink",
+      "uploadConfig": {
+        "bin": "",
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "ST",
+          "cpuName": "STM32F407VE"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {},
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "CubeMX/Core/Inc",
+          "CubeMX/Drivers/STM32F4xx_HAL_Driver/Inc",
+          "CubeMX/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+          "CubeMX/Middlewares/Third_Party/FreeRTOS/Source/include",
+          "CubeMX/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
+          "CubeMX/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
+          "CubeMX/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+          "CubeMX/Drivers/CMSIS/Include",
+          "CubeMX/Core/ThreadSafe"
+        ],
+        "libList": [],
+        "sourceDirList": [],
+        "defineList": [
+          "USE_HAL_DRIVER",
+          "STM32F407xx",
+          "STM32_THREAD_SAFE_STRATEGY=4"
+        ]
+      }
+    }
+  },
+  "version": "3.3"
+}
